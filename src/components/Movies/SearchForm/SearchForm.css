@@ -1,0 +1,142 @@
+.search__container {
+  max-width: 1140px;
+  margin: 72px auto 0;
+}
+
+.search-form {
+  background: #f9f9f9;
+  border-radius: 9px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 69px;
+}
+
+.search-form__label {
+  padding: 30px;
+}
+
+.search-form__input {
+  margin-left: 10px;
+  outline: none;
+  border: none;
+  background: #f9f9f9;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #a0a0a0;
+  width: 720px;
+  padding: 0;
+}
+
+.search-form__input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-form__button {
+  background: #ff6838;
+  border-radius: 48px;
+  border: none;
+  width: 80px;
+  height: 34px;
+  margin-right: 30px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.search-form__decor {
+  margin-right: 29px;
+  border-right: 1px solid #e8e8e8;
+  height: 40px;
+}
+
+.search__container-decor {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+@media (max-width: 1280px) {
+  .search__container {
+    max-width: calc(708px + (1140 - 708) * ((100vw - 768px) / (1280 - 768)));
+  }
+
+  .search-form__input {
+    width: calc(318px + (720 - 318) * ((100vw - 768px) / (1280 - 768)));
+  }
+}
+
+@media (max-width: 1024px) {
+  .search-form__button {
+    margin-right: 25px;
+  }
+
+  .search-form__decor {
+    margin-right: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search__container {
+    margin: 76px auto 0;
+  }
+
+  .search-form {
+    margin-bottom: 109px;
+  }
+
+  .search-form__button {
+    margin-right: 19px;
+  }
+
+  .search-form__decor {
+    margin-right: 19px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search__container {
+    margin-top: 80px;
+    max-width: calc(300px + (460 - 300) * ((100vw - 320px) / (480 - 320)));
+  }
+
+  .search-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    row-gap: 47px;
+    grid-template-areas:
+      'search-form__label search-form__button'
+      'check-box__container check-box__container';
+  }
+
+  .search-form__label {
+    grid-area: search-form__label;
+    padding: 25px 20px;
+  }
+
+  .search-form__label-icon {
+    display: none;
+  }
+
+  .search-form__input {
+    margin: 0;
+    width: calc(150px + (280 - 150) * ((100vw - 320px) / (480 - 320)));
+    font-size: 14px;
+  }
+
+  .search-form__button {
+    margin: 0;
+    grid-area: search-form__button;
+    justify-self: center;
+  }
+
+  .search-form__decor {
+    display: none;
+  }
+}
+
+@media (max-width: 320px) {
+  .search-form__button {
+    justify-self: start;
+    margin: 1px 0 0 1px;
+    padding-top: 3px;
+  }
+}
