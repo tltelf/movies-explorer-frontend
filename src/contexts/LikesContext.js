@@ -4,7 +4,7 @@ const LikesContext = createContext();
 
 const LikesProvider = ({ children }) => {
   const [likedCards, setLikedCards] = useState(
-    JSON.parse(localStorage.getItem('likedCards'))
+    JSON.parse(localStorage.getItem('likedCards')) || []
   );
 
   useEffect(() => {
