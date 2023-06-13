@@ -11,7 +11,7 @@ export const Header = ({ screenSize }) => {
   const isMainPage = location.pathname === '/';
 
   return (
-    <header className={`header${isMainPage ? ' header_main-page' : ''}`}>
+    <header className={`header${isMainPage ? ' header_view_action' : ''}`}>
       <div
         className={`header__container${
           isAuth ? '' : ' header__container_unauth'

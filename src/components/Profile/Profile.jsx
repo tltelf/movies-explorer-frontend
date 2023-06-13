@@ -1,6 +1,6 @@
 export const Profile = ({ onLogout }) => {
   return (
-    <div className='profile__container'>
+    <div className='profile'>
       <h2 className='profile__title'>Привет, Виталий!</h2>
       <form className='profile__form' action=''>
         <label className='profile__form-label' htmlFor='name'>

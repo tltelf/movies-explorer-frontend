@@ -27,7 +27,7 @@ export const MoviesCardList = ({ savedMovies, screenSize }) => {
       1024: 16,
       768: 12,
       480: 8,
-      320: 5,
+      319: 5,
       default: 3,
     };
 

@@ -1,10 +1,6 @@
-.sign-up-in {
-  width: 396px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
+.sign-up-in__container {
+  margin: 70px auto;
+  max-width: 396px;
 }
 
 .sign-up-in__logo {
@@ -58,8 +54,8 @@
   border-radius: 3px;
   color: #ffffff;
   height: 45px;
-  padding: 0;
-  margin-bottom: 16px;
+  padding: 0 2px 2px 0;
+  margin-bottom: 15px;
 }
 
 .sign-up-in__form-button_register {
@@ -70,15 +66,15 @@
   margin-top: 215px;
 }
 
-.sign-up-in__container {
-  text-align: center;
-}
-
 .sign-up-in__text {
-  margin-right: 6px;
+  margin: 0 7px 0 56px;
   font-size: 14px;
   line-height: 17px;
   color: #a0a0a0;
+}
+
+.sign-up-in__text_register {
+  margin-left: 89px;
 }
 
 .sign-up-in__link {
@@ -89,9 +85,16 @@
   text-decoration: none;
 }
 
+@media (max-width: 768px) {
+  .sign-up-in__container {
+    margin: 232px auto;
+  }
+}
+
 @media (max-width: 480px) {
-  .sign-up-in {
-    width: calc(260px + (396 - 260) * ((100vw - 320px) / (480 - 320)));
+  .sign-up-in__container {
+    max-width: calc(260px + (396 - 260) * ((100vw - 320px) / (480 - 320)));
+    margin: 56px auto 30px;
     text-align: center;
   }
 
@@ -100,7 +103,7 @@
   }
 
   .sign-up-in__title {
-    margin-bottom: 80px;
+    margin-bottom: 62px;
   }
 
   .sign-up-in__form {
@@ -110,18 +113,22 @@
   .sign-up-in__form-button {
     font-size: 12px;
     line-height: 15px;
-    margin-bottom: 11px;
+    margin-bottom: 10px;
   }
 
   .sign-up-in__form-button_register {
-    margin-top: 240px;
+    padding: 0 1px 0 0;
+    margin-bottom: 11px;
+    margin-top: 234px;
   }
 
   .sign-up-in__form-button_login {
-    margin-top: 309px;
+    padding-bottom: 0;
+    margin-top: 303px;
   }
 
   .sign-up-in__text {
+    margin-left: 0;
     font-size: 12px;
     line-height: 15px;
   }

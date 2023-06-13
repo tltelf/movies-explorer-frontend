@@ -2,7 +2,10 @@ import { Section } from '../../Section/Section';
 
 export const AboutProject = () => {
   return (
-    <Section title={'О проекте'}>
+    <Section
+      title={'О проекте'}
+      classNameContainer={'section__container_about-project'}
+    >
       <div className='about__container'>
         <h2 className='about__title'>Дипломный проект включал 5 этапов</h2>
         <p className='about__text'>

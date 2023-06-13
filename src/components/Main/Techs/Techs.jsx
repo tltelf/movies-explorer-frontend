@@ -2,7 +2,11 @@ import { Section } from '../../Section/Section';
 
 export const Techs = () => {
   return (
-    <Section title={'Технологии'} className={'section_techs'}>
+    <Section
+      title={'Технологии'}
+      className={'section_techs'}
+      classNameContainer={'section__container_techs'}
+    >
       <h2 className='techs__title'>7 технологий</h2>
       <p className='techs__text'>
         На курсе веб-разработки мы освоили технологии, которые применили в

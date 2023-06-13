@@ -2,7 +2,6 @@
   min-height: 560px;
   background: #465dff url('../../../images/promo__background.svg') no-repeat
     right 70px bottom 60px/722px 244px;
-  margin-bottom: 110px;
 }
 
 .promo__title {
@@ -38,7 +37,6 @@
     background-position: right
       calc(-180px + (44 + 180) * ((100vw - 320px) / (768 - 320))) bottom
       calc(40px + (70 - 40) * ((100vw - 320px) / (768 - 320)));
-    margin-bottom: 90px;
   }
 
   .promo__title {
@@ -47,11 +45,5 @@
     padding-left: calc(0px + 70 * ((100vw - 320px) / (768 - 320)));
     font-size: calc(31px + (40 - 31) * ((100vw - 320px) / (768 - 320)));
     line-height: calc(39px + (52 - 39) * ((100vw - 320px) / (768 - 320)));
-  }
-}
-
-@media (max-width: 480px) {
-  .promo {
-    margin-bottom: 73px;
   }
 }
