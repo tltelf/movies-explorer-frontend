@@ -1,0 +1,105 @@
+.movies__cell {
+  display: grid;
+  grid-template-areas:
+    'movies__cell-img-container movies__cell-img-container'
+    'movies__cell-title movies__cell-button'
+    'movies__cell-decor movies__cell-decor'
+    'movies__cell-time movies__cell-time';
+}
+
+.movies__cell-img-container {
+  grid-area: movies__cell-img-container;
+  width: 270px;
+  height: 151px;
+  margin-bottom: 10px;
+}
+
+.movies__cell-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.movies__cell-title {
+  grid-area: movies__cell-title;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0;
+  padding-top: 5px;
+}
+
+.movies__cell-button {
+  grid-area: movies__cell-button;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 36px;
+  margin-bottom: 25px;
+  padding: 0;
+  justify-self: end;
+  cursor: pointer;
+  background: #f9f9f9 url('../../../images/movie__dislike.svg') no-repeat center;
+  transition: 0.5s;
+}
+
+.movies__cell-button_active {
+  background-image: url('../../../images/movie__like.svg');
+}
+
+.movies__cell-button_remove {
+  opacity: 0;
+}
+
+.movies__cell-button_remove:hover {
+  opacity: 1;
+  background-image: url('../../../images/movie__remove.svg');
+}
+
+.movies__cell-decor {
+  grid-area: movies__cell-decor;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 7px;
+}
+
+.movies__cell-time {
+  grid-area: movies__cell-time;
+  font-size: 11px;
+  line-height: 13px;
+  color: #a0a0a0;
+}
+
+@media (max-width: 1280px) {
+  .movies__cell-img-container {
+    width: calc(216px + (270 - 216) * ((100vw - 1025px) / (1280 - 1025)));
+    height: calc(124px + (151 - 124) * ((100vw - 1025px) / (1280 - 1025)));
+  }
+}
+
+@media (max-width: 1024px) {
+  .movies__cell-img-container {
+    width: calc(222px + (294 - 222) * ((100vw - 768px) / (1024 - 768)));
+    height: calc(128px + (168 - 128) * ((100vw - 768px) / (1024 - 768)));
+  }
+}
+
+@media (max-width: 768px) {
+  .movies__cell-img-container {
+    width: calc(217px + (339 - 217) * ((100vw - 481px) / (768 - 481)));
+    height: calc(125px + (190 - 125) * ((100vw - 481px) / (768 - 481)));
+  }
+}
+
+@media (max-width: 480px) {
+  .movies__cell-img-container {
+    width: calc(300px + (460 - 300) * ((100vw - 320px) / (480 - 320)));
+    height: calc(168px + (261 - 168) * ((100vw - 320px) / (480 - 320)));
+  }
+}
+
+@media (max-width: 480px) {
+  .movies__cell-title {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

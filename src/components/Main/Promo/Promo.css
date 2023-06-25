@@ -1,0 +1,49 @@
+.promo {
+  min-height: 560px;
+  background: #465dff url('../../../images/promo__background.svg') no-repeat
+    right 70px bottom 60px/722px 244px;
+}
+
+.promo__title {
+  font-weight: 400;
+  max-width: 626px;
+  font-size: 40px;
+  line-height: 52px;
+  color: #fff;
+  margin: 0;
+  padding: 51px 0 0 70px;
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 1280px) {
+  .promo {
+    min-height: calc(844px + (560 - 844) * ((100vw - 768px) / (1280 - 768)));
+  }
+
+  .promo__title {
+    padding-top: calc(300px + (51 - 300) * ((100vw - 768px) / (1280 - 768)));
+  }
+}
+
+@media (max-width: 1024px) {
+  .promo {
+    background-size: 680px 230px;
+  }
+}
+
+@media (max-width: 768px) {
+  .promo {
+    min-height: calc(630px + (844 - 630) * ((100vw - 320px) / (768 - 320)));
+    background-position: right
+      calc(-180px + (44 + 180) * ((100vw - 320px) / (768 - 320))) bottom
+      calc(40px + (70 - 40) * ((100vw - 320px) / (768 - 320)));
+  }
+
+  .promo__title {
+    text-align: center;
+    padding-top: calc(183px + (300 - 183) * ((100vw - 320px) / (768 - 320)));
+    padding-left: calc(0px + 70 * ((100vw - 320px) / (768 - 320)));
+    font-size: calc(31px + (40 - 31) * ((100vw - 320px) / (768 - 320)));
+    line-height: calc(39px + (52 - 39) * ((100vw - 320px) / (768 - 320)));
+  }
+}
