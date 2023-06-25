@@ -67,12 +67,15 @@
 }
 
 @media (max-width: 480px) {
+  .section_techs {
+    background-color: #ffffff;
+  }
+
   .section__container {
     padding: 70px 0;
   }
 
   .section__container_techs {
-    background-color: #fff;
     padding: 71px 0;
   }
 

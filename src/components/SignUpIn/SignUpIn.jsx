@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 import logo from '../../images/header__logo.svg';
+import { useEffect } from 'react';
 
 export const SignUpIn = ({
   title,
@@ -8,18 +8,26 @@ export const SignUpIn = ({
   spanText,
   linkTo,
   linkText,
-  onLogin,
+  values,
+  handleChange,
+  errors,
+  isValid,
+  handleSubmit,
+  handleBlur,
+  resetForm,
+  resError,
+  setResError,
 }) => {
   const location = useLocation();
   const isLoginPage = location.pathname === '/signin';
 
-  const { values, handleChange, errors, isValid, resetForm } =
-    useFormWithValidation();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  useEffect(() => {
     resetForm();
+    setResError('');
+  }, []);
+
+  const handleFocus = () => {
+    setResError('');
   };
 
   return (
@@ -30,11 +38,19 @@ export const SignUpIn = ({
         </Link>
         <h2 className='sign-up-in__title'>{title}</h2>
 
-        <form className='sign-up-in__form' onSubmit={handleSubmit}>
+        <form
+          className='sign-up-in__form'
+          onSubmit={handleSubmit}
+          // onBlur={handleBlur}
+          onFocus={handleFocus}
+        >
           {!isLoginPage && (
             <>
               <label className='sign-up-in__form-label' htmlFor='name'>
                 Имя
+                {errors.name && (
+                  <span className='sign-up-in__form-error'>{errors.name}</span>
+                )}
               </label>
               <input
                 className='sign-up-in__form-input'
@@ -44,16 +60,18 @@ export const SignUpIn = ({
                 placeholder='Виталий'
                 value={values.name || ''}
                 onChange={handleChange}
+                pattern='^[A-Za-zА-Яа-я\s\-]+$'
+                title='Имя может содержать только латиницу, кириллицу, пробел или дефис.'
                 required
               />
-              {errors.name && (
-                <span className='sign-up-in__form-error'>{errors.name}</span>
-              )}
             </>
           )}
 
           <label className='sign-up-in__form-label' htmlFor='email'>
             E-mail
+            {errors.email && (
+              <span className='sign-up-in__form-error'>{errors.email}</span>
+            )}
           </label>
           <input
             className='sign-up-in__form-input'
@@ -66,12 +84,12 @@ export const SignUpIn = ({
             pattern='^[^\s@]+@[^\s@]+\.[^\s@]+$'
             required
           />
-          {errors.email && (
-            <span className='sign-up-in__form-error'>{errors.email}</span>
-          )}
 
           <label className='sign-up-in__form-label' htmlFor='password'>
             Пароль
+            {errors.password && (
+              <span className='sign-up-in__form-error'>{errors.password}</span>
+            )}
           </label>
           <input
             className='sign-up-in__form-input'
@@ -83,19 +101,28 @@ export const SignUpIn = ({
             onChange={handleChange}
             required
           />
-          {errors.password && (
-            <span className='sign-up-in__form-error'>{errors.password}</span>
-          )}
 
+          {resError && (
+            <span
+              className={`sign-up-in__form-error-response ${
+                isLoginPage
+                  ? 'sign-up-in__form-error-response_login'
+                  : 'sign-up-in__form-error-response_register'
+              }`}
+            >
+              {resError}
+            </span>
+          )}
           <button
             className={`sign-up-in__form-button ${
+              !isValid || resError ? 'sign-up-in__form-button_disabled' : ''
+            } ${
               isLoginPage
                 ? 'sign-up-in__form-button_login'
                 : 'sign-up-in__form-button_register'
             }`}
-            onClick={onLogin}
             type='submit'
-            disabled={!isValid}
+            disabled={!isValid || resError}
           >
             {buttonText}
           </button>

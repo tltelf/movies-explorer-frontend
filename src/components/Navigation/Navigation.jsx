@@ -14,14 +14,14 @@ export const Navigation = ({ isAuth, isMainPage, screenSize }) => {
     screenSize < 769 ? (
       <>
         <button
-          className={`nav__button-open-bar${
-            isMainPage ? ' nav__button-open-bar_main-page' : ''
+          className={`navigation-button${
+            isMainPage ? ' navigation-button_main-page' : ''
           }`}
           onClick={showSidebar}
         >
           <span
-            className={`nav__button-open-bar-span${
-              isMainPage ? ' nav__button-open-bar-span_main-page' : ''
+            className={`navigation-button__span${
+              isMainPage ? ' navigation-button__span_main-page' : ''
             }`}
           ></span>
         </button>

@@ -15,6 +15,38 @@
 
 .search__form-label {
   padding: 30px 20px 30px 30px;
+  position: relative;
+}
+
+.tooltip {
+  width: 215px;
+  padding: 0px 20px;
+  background: #ffffff;
+  color: #818181;
+  position: absolute;
+  top: 115%;
+  left: 0;
+  border-radius: 9px;
+  font-size: 14px;
+  box-shadow: 0 0 3px rgba(212, 212, 212, 0.86);
+}
+
+.tooltip::after {
+  content: ' ';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 12.5px 0 12.5px;
+  border-color: #ffffff transparent transparent transparent;
+  position: absolute;
+  top: -17%;
+  left: 40%;
+  transform: rotate(180deg);
+}
+
+.tooltip__text {
+  display: inline-block;
+  margin: 14px 0;
 }
 
 .search__form-input {
@@ -141,6 +173,25 @@
   .search__decor {
     margin-bottom: 50px;
     max-width: calc(300px + (460 - 300) * ((100vw - 320px) / (480 - 320)));
+  }
+
+  .tooltip {
+    width: 185px;
+    padding: 0px 10px;
+    top: -80%;
+    left: 2%;
+    font-size: 12px;
+  }
+
+  .tooltip::after {
+    border-width: 10px 10.5px 0 10.5px;
+    top: 100%;
+    left: 20%;
+    transform: none;
+  }
+
+  .tooltip__text {
+    margin: 12px 0;
   }
 }
 

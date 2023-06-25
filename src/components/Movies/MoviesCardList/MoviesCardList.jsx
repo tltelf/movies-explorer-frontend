@@ -1,11 +1,19 @@
-import { useState, useEffect, useContext } from 'react';
-import { MoviesData } from '../../MoviesData';
+import { useState, useEffect } from 'react';
 import { MoviesCard } from '../MoviesCard/MoviesCard';
-import { LikesContext } from '../../../contexts/LikesContext';
+import Preloader from '../Preloader/Preloader';
 
-export const MoviesCardList = ({ savedMovies, screenSize }) => {
-  const { likedCards } = useContext(LikesContext);
-
+export const MoviesCardList = ({
+  savedMovies,
+  screenSize,
+  filteredMovies,
+  likedCards,
+  addLikedCard,
+  removeLikedCard,
+  isLoading,
+  searchText,
+  filteredLikedMovies,
+  resErrorMovies,
+}) => {
   const [visibleCards, setVisibleCards] = useState(16);
 
   const handleLoadMore = () => {
@@ -14,13 +22,9 @@ export const MoviesCardList = ({ savedMovies, screenSize }) => {
     setVisibleCards(visibleCards + showMore);
   };
 
-  const allLikedCards = MoviesData.filter((card) =>
-    likedCards.some((likedCard) => likedCard.id === card.id)
-  );
-
   const visibleMovies = savedMovies
-    ? allLikedCards
-    : MoviesData.slice(0, visibleCards);
+    ? filteredLikedMovies
+    : filteredMovies.slice(0, visibleCards);
 
   useEffect(() => {
     const config = {
@@ -38,15 +42,36 @@ export const MoviesCardList = ({ savedMovies, screenSize }) => {
     setVisibleCards(config[matchedKey] || defaultValue);
   }, [screenSize]);
 
-  return (
+  return isLoading ? (
+    <Preloader />
+  ) : resErrorMovies && !savedMovies ? (
+    <p className='not-found-movies'>
+      Во время запроса произошла ошибка. Возможно, проблема с соединением или
+      сервер недоступен. Подождите немного и попробуйте ещё раз.
+    </p>
+  ) : !searchText && !savedMovies ? null : visibleMovies.length === 0 ? (
+    !searchText && savedMovies ? null : (
+      <p className='not-found-movies'>Ничего не найдено</p>
+    )
+  ) : (
     <section className='movies'>
       <ul className={`movies__list${savedMovies ? ' movies__list_saved' : ''}`}>
-        {visibleMovies.map((card) => (
-          <MoviesCard key={card.id} card={card} savedMovies={savedMovies} />
-        ))}
+        {visibleMovies.map((card) => {
+          return (
+            <MoviesCard
+              key={card.movieId ? card.movieId : card.id}
+              card={card}
+              savedMovies={savedMovies}
+              likedCards={likedCards}
+              addLikedCard={addLikedCard}
+              removeLikedCard={removeLikedCard}
+              filteredMovies={filteredMovies}
+            />
+          );
+        })}
       </ul>
       <div className='movies__more'>
-        {!savedMovies && visibleCards < MoviesData.length && (
+        {!savedMovies && visibleCards < filteredMovies.length && (
           <button
             className='movies__more-button'
             onClick={handleLoadMore}
