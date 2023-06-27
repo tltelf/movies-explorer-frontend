@@ -94,12 +94,12 @@ export const Profile = ({
           <>
             <button
               className={`profile__form-button${
-                !name.isValid || !email.isValid || resError
+                (!name.isValid && !email.isValid) || resError
                   ? ' profile__form-button_disabled'
                   : ''
               }`}
               type='button'
-              disabled={!name.isValid || !email.isValid || resError}
+              disabled={(!name.isValid && !email.isValid) || resError}
               onClick={handleEditButton}
             >
               Редактировать
@@ -116,7 +116,7 @@ export const Profile = ({
           <button
             className='profile__form-save-button'
             type='submit'
-            disabled={!name.isValid || !email.isValid || resError}
+            disabled={(!name.isValid && !email.isValid) || resError}
           >
             Сохранить
           </button>
