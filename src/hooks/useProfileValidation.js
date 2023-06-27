@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import isEmail from 'validator/lib/isEmail';
+import { regexName } from '../constants';
 
 export function useProfileValidation(initialValue, validations) {
   const [value, setValue] = useState(initialValue);
   const [error, setError] = useState('');
   const [isValid, setIsValid] = useState(false);
-  const regexName = /^[A-Za-zА-Яа-я\s-]+$/;
 
   const onChange = (e) => {
     setValue(e.target.value);

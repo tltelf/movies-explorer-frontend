@@ -7,7 +7,6 @@ export const Login = ({
   isValid,
   onLogin,
   handleSubmitAuth,
-  handleBlur,
   resetForm,
   resError,
   setResError,
@@ -25,7 +24,6 @@ export const Login = ({
       linkTo={'/signup'}
       onLogin={onLogin}
       handleSubmit={handleSubmitAuth}
-      handleBlur={handleBlur}
       resetForm={resetForm}
       resError={resError}
       setResError={setResError}

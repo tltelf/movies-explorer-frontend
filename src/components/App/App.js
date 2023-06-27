@@ -370,7 +370,6 @@ function App() {
                 errors={errors}
                 isValid={isValid}
                 resetForm={resetForm}
-                handleBlur={handleBlur}
                 handleSubmitRegister={handleSubmitRegister}
                 resError={resError}
                 setResError={setResError}
@@ -387,7 +386,6 @@ function App() {
                 errors={errors}
                 isValid={isValid}
                 resetForm={resetForm}
-                handleBlur={handleBlur}
                 handleSubmitAuth={handleSubmitAuth}
                 resError={resError}
                 setResError={setResError}

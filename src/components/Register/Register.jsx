@@ -6,7 +6,6 @@ export const Register = ({
   errors,
   isValid,
   handleSubmitRegister,
-  handleBlur,
   resetForm,
   resError,
   setResError,
@@ -23,7 +22,6 @@ export const Register = ({
       linkText={'Войти'}
       linkTo={'/signin'}
       handleSubmit={handleSubmitRegister}
-      handleBlur={handleBlur}
       resetForm={resetForm}
       resError={resError}
       setResError={setResError}

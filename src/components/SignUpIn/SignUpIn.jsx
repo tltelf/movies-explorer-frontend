@@ -13,7 +13,6 @@ export const SignUpIn = ({
   errors,
   isValid,
   handleSubmit,
-  handleBlur,
   resetForm,
   resError,
   setResError,
@@ -41,7 +40,6 @@ export const SignUpIn = ({
         <form
           className='sign-up-in__form'
           onSubmit={handleSubmit}
-          // onBlur={handleBlur}
           onFocus={handleFocus}
         >
           {!isLoginPage && (
