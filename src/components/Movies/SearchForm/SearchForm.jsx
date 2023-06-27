@@ -1,6 +1,7 @@
 import { FilterCheckbox } from '../FilterCheckbox/FilterCheckbox';
 import search from '../../../images/search.svg';
 import searchButton from '../../../images/search-button.svg';
+import { useEffect } from 'react';
 export const SearchForm = ({
   checkboxValue,
   handleCheckbox,
@@ -12,10 +13,16 @@ export const SearchForm = ({
   handleBlur,
   errorSearchForm,
   setErrorSearchForm,
+  isMoviesPage,
+  resetForm,
 }) => {
   const handleBlurForm = () => {
     setErrorSearchForm(false);
   };
+
+  useEffect(() => {
+    resetForm();
+  }, []);
 
   return (
     <>
@@ -39,8 +46,11 @@ export const SearchForm = ({
               className='search__form-input'
               type='search'
               placeholder='Фильм'
-              name='search'
-              defaultValue={values.search || searchText}
+              name={isMoviesPage ? 'search' : 'searchLiked'}
+              defaultValue={
+                (isMoviesPage ? values.search : values.searchLiked) ||
+                searchText
+              }
               onChange={handleChange}
               onBlur={handleBlur}
               required

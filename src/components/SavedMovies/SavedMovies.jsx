@@ -25,8 +25,11 @@ export const SavedMovies = ({
   errorSearchForm,
   setErrorSearchForm,
   resErrorMovies,
+  resetForm,
+  setSearchTextSavedMovies,
 }) => {
   useEffect(() => {
+    setSearchTextSavedMovies('');
     filterMovies(
       allMovies,
       searchText,
@@ -50,6 +53,8 @@ export const SavedMovies = ({
         handleBlur={handleBlur}
         errorSearchForm={errorSearchForm}
         setErrorSearchForm={setErrorSearchForm}
+        isMoviesPage={isMoviesPage}
+        resetForm={resetForm}
       />
       <MoviesCardList
         savedMovies={true}

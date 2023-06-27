@@ -54,6 +54,9 @@ function App() {
   const [checkboxValue, setCheckBoxValue] = useState(
     JSON.parse(localStorage.getItem('checkboxValue')) || false
   );
+  const [checkboxValueSavedMovies, setCheckBoxValueSavedMovies] =
+    useState(false);
+  const [searchTextSavedMovies, setSearchTextSavedMovies] = useState('');
 
   const handleSubmitRegister = (e) => {
     e.preventDefault();
@@ -100,26 +103,30 @@ function App() {
       try {
         if (allMovies.length === 0) {
           const moviesData = await getMovies();
-          setSearchText(values.search);
+          isMoviesPage
+            ? setSearchText(values.search)
+            : setSearchTextSavedMovies(values.searchLiked);
           setAllMovies(moviesData);
           filterMovies(
             moviesData,
-            values.search,
+            isMoviesPage ? values.search : values.searchLiked,
             likedCards,
             setFilteredMovies,
             setFilteredLikedMovies,
-            checkboxValue,
+            isMoviesPage ? checkboxValue : checkboxValueSavedMovies,
             isMoviesPage
           );
         } else {
-          setSearchText(values.search);
+          isMoviesPage
+            ? setSearchText(values.search)
+            : setSearchTextSavedMovies(values.searchLiked);
           filterMovies(
             allMovies,
-            values.search,
+            isMoviesPage ? values.search : values.searchLiked,
             likedCards,
             setFilteredMovies,
             setFilteredLikedMovies,
-            checkboxValue,
+            isMoviesPage ? checkboxValue : checkboxValueSavedMovies,
             isMoviesPage
           );
         }
@@ -199,15 +206,16 @@ function App() {
   };
 
   const handleCheckbox = () => {
-    setCheckBoxValue(!checkboxValue);
-
+    isMoviesPage
+      ? setCheckBoxValue(!checkboxValue)
+      : setCheckBoxValueSavedMovies(!checkboxValueSavedMovies);
     filterMovies(
       allMovies,
-      searchText,
+      isMoviesPage ? searchText : searchTextSavedMovies,
       likedCards,
       setFilteredMovies,
       setFilteredLikedMovies,
-      !checkboxValue,
+      isMoviesPage ? !checkboxValue : !checkboxValueSavedMovies,
       isMoviesPage
     );
   };
@@ -239,11 +247,11 @@ function App() {
           setLikedCards(films);
           filterMovies(
             allMovies,
-            searchText,
+            isMoviesPage ? searchText : searchTextSavedMovies,
             films,
             setFilteredMovies,
             setFilteredLikedMovies,
-            checkboxValue,
+            isMoviesPage ? checkboxValue : checkboxValueSavedMovies,
             isMoviesPage
           );
           setCurrentUser(info);
@@ -303,6 +311,7 @@ function App() {
                   setErrorSearchForm={setErrorSearchForm}
                   resErrorMovies={resErrorMovies}
                   setResErrorMovies={setResErrorMovies}
+                  resetForm={resetForm}
                 />
               }
             />
@@ -315,8 +324,8 @@ function App() {
                   removeLikedCard={removeLikedCard}
                   filteredMovies={filteredMovies}
                   setFilteredMovies={setFilteredMovies}
-                  searchText={searchText}
-                  checkboxValue={checkboxValue}
+                  searchText={''}
+                  checkboxValue={checkboxValueSavedMovies}
                   handleCheckbox={handleCheckbox}
                   allMovies={allMovies}
                   isLoading={isLoading}
@@ -331,6 +340,8 @@ function App() {
                   errorSearchForm={errorSearchForm}
                   setErrorSearchForm={setErrorSearchForm}
                   resErrorMovies={resErrorMovies}
+                  resetForm={resetForm}
+                  setSearchTextSavedMovies={setSearchTextSavedMovies}
                 />
               }
             />

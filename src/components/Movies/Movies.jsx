@@ -27,6 +27,7 @@ export const Movies = ({
   setErrorSearchForm,
   resErrorMovies,
   setResErrorMovies,
+  resetForm,
 }) => {
   useEffect(() => {
     filterMovies(
@@ -53,6 +54,8 @@ export const Movies = ({
         handleBlur={handleBlur}
         errorSearchForm={errorSearchForm}
         setErrorSearchForm={setErrorSearchForm}
+        isMoviesPage={isMoviesPage}
+        resetForm={resetForm}
       />
       <MoviesCardList
         searchText={searchText}
