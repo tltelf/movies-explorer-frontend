@@ -36,7 +36,13 @@ export const Profile = ({
   const handleSubmitProfile = (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    updateUserInfo({ email: email.value, name: name.value }, token)
+    updateUserInfo(
+      {
+        email: email.value || currentUser.email,
+        name: name.value || currentUser.name,
+      },
+      token
+    )
       .then((res) => {
         setCurrentUser(res);
         setButtonIsActive(!buttonIsActive);
