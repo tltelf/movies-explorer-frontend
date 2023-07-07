@@ -25,11 +25,16 @@
   background-color: transparent;
   cursor: pointer;
   padding: 0;
+  margin-bottom: 60px;
 }
 
 @media (max-width: 768px) {
   .notfound__title {
     margin-top: 408px;
+  }
+
+  .notfound__button {
+    margin-bottom: 222px;
   }
 }
 
@@ -49,5 +54,6 @@
   .notfound__button {
     font-size: 12px;
     line-height: 15px;
+    margin-bottom: 30px;
   }
 }

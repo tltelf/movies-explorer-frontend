@@ -91,7 +91,7 @@
   padding-top: 8px;
 }
 
-.nav__button-open-bar {
+.navigation-button {
   display: flex;
   border: none;
   background: none;
@@ -103,7 +103,7 @@
   position: relative;
 }
 
-.nav__button-open-bar-span {
+.navigation-button__span {
   position: absolute;
   width: 28px;
   height: 3px;
@@ -112,11 +112,11 @@
   left: 8px;
 }
 
-.nav__button-open-bar-span_main-page {
+.navigation-button__span_main-page {
   background: #ffffff;
 }
 
-.nav__button-open-bar::before {
+.navigation-button::before {
   content: '';
   position: absolute;
   top: 9px;
@@ -126,11 +126,11 @@
   background: #000000;
 }
 
-.nav__button-open-bar_main-page::before {
+.navigation-button_main-page::before {
   background: #ffffff;
 }
 
-.nav__button-open-bar::after {
+.navigation-button::after {
   content: '';
   position: absolute;
   bottom: 12px;
@@ -140,7 +140,7 @@
   background: #000000;
 }
 
-.nav__button-open-bar_main-page::after {
+.navigation-button_main-page::after {
   background: #ffffff;
 }
 
@@ -179,6 +179,7 @@
     right: -150%;
     transition: 550ms;
     backdrop-filter: brightness(0.6);
+    z-index: 1;
   }
 
   .nav_active {
@@ -228,23 +229,23 @@
 }
 
 @media (max-width: 480px) {
-  .nav__button-open-bar {
+  .navigation-button {
     width: 40px;
     height: 40px;
   }
 
-  .nav__button-open-bar-span {
+  .navigation-button__span {
     width: 22px;
     left: 9px;
   }
 
-  .nav__button-open-bar::before {
+  .navigation-button::before {
     width: 22px;
     top: 10px;
     left: 9px;
   }
 
-  .nav__button-open-bar::after {
+  .navigation-button::after {
     width: 22px;
     bottom: 9px;
     left: 9px;

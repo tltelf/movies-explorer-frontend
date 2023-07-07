@@ -1,3 +1,8 @@
+.not-found-movies {
+  margin: 0;
+  text-align: center;
+}
+
 .movies__list {
   padding: 0;
   margin: 0;

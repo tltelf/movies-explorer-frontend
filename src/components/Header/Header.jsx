@@ -1,12 +1,12 @@
 import { useContext } from 'react';
-import { AuthContext } from '../../contexts/AuthContext';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { Link, useLocation } from 'react-router-dom';
 import { Navigation } from '../Navigation/Navigation';
 import logo from '../../images/header__logo.svg';
 
 export const Header = ({ screenSize }) => {
   const location = useLocation();
-  const isAuth = useContext(AuthContext);
+  const { isAuth } = useContext(CurrentUserContext);
 
   const isMainPage = location.pathname === '/';
 

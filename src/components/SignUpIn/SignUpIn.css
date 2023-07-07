@@ -23,6 +23,7 @@
   line-height: 12px;
   color: #a0a0a0;
   margin: 18px 0 5px;
+  position: relative;
 }
 
 .sign-up-in__form-input {
@@ -43,6 +44,26 @@
   font-size: 10px;
   line-height: 12px;
   color: #ee3465;
+  position: absolute;
+  top: 51px;
+  left: 1px;
+}
+
+.sign-up-in__form-error-response {
+  font-size: 11px;
+  line-height: 13px;
+  color: #ee3465;
+  text-align: center;
+}
+
+.sign-up-in__form-error-response_login {
+  margin-bottom: -195px;
+  padding-top: 182px;
+}
+
+.sign-up-in__form-error-response_register {
+  margin-bottom: -126px;
+  padding-top: 113px;
 }
 
 .sign-up-in__form-button {
@@ -56,6 +77,16 @@
   height: 45px;
   padding: 0 2px 2px 0;
   margin-bottom: 15px;
+}
+
+.sign-up-in__form-button_disabled {
+  background-color: #f8f8f8;
+  color: #c2c2c2;
+}
+
+.sign-up-in__form-button_disabled:hover {
+  cursor: default;
+  opacity: 1;
 }
 
 .sign-up-in__form-button_register {
@@ -108,6 +139,16 @@
 
   .sign-up-in__form {
     text-align: start;
+  }
+
+  .sign-up-in__form-error-response_login {
+    margin-bottom: -283px;
+    padding-top: 270px;
+  }
+
+  .sign-up-in__form-error-response_register {
+    margin-bottom: -214px;
+    padding-top: 201px;
   }
 
   .sign-up-in__form-button {

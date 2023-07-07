@@ -23,5 +23,18 @@ export function useFormWithValidation() {
     [setValues, setErrors, setIsValid]
   );
 
-  return { values, handleChange, errors, isValid, resetForm };
+  const handleBlur = () => {
+    setErrors({});
+  };
+
+  return {
+    values,
+    setValues,
+    handleChange,
+    errors,
+    setErrors,
+    isValid,
+    resetForm,
+    handleBlur,
+  };
 }
